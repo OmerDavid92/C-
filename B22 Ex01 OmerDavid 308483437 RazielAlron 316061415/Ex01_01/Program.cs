@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public static void Main()
+        public static void       Main()
         {
             string inputNumber1 = inputHandler();
             string inputNumber2 = inputHandler();
@@ -16,7 +16,7 @@
             sizeStatistics(decimalNumber1, decimalNumber2, decimalNumber3);
         }
 
-        private static bool isValidInput(string i_UserInput)
+        private static bool      isValidInput(string i_UserInput)
         {
             if (i_UserInput.Length != 8)
             {
@@ -34,7 +34,7 @@
             return true;
         }
 
-        private static string inputHandler()
+        private static string    inputHandler()
         {
             System.Console.WriteLine("Please enter a binary number with 8 digits");
             string userInput = System.Console.ReadLine();
@@ -47,7 +47,7 @@
             return userInput;
         }
 
-        private static int stringToDecimalConverter(string i_BinaryString)
+        private static int       stringToDecimalConverter(string i_BinaryString)
         {
             int decimalNumber = 0;
             for (int i = 0; i < i_BinaryString.Length; i++)
@@ -58,7 +58,7 @@
             return decimalNumber;
         }
 
-        private static int binaryZeroDigitsCounter(string i_BinaryString)
+        private static int       binaryZeroDigitsCounter(string i_BinaryString)
         {
             int zeroCounter = 0;
             for (int i = 0; i < i_BinaryString.Length; i++)
@@ -72,7 +72,7 @@
             return zeroCounter;
         }
 
-        private static void digitsAverageStatistics(string i_BinaryString1, string i_BinaryString2, string i_BinaryString3)
+        private static void      digitsAverageStatistics(string i_BinaryString1, string i_BinaryString2, string i_BinaryString3)
         {
             int zeroTotalCounter = 0;
             int oneTotalCounter = 0;
@@ -84,7 +84,7 @@
             System.Console.WriteLine("Average number of 1: {0}", oneTotalCounter / 3);
         }
 
-        private static int sqrtCheck(int i_DecimalNmber)
+        private static int       sqrtCheck(int i_DecimalNmber)
         {
             double log2 = System.Math.Log(i_DecimalNmber, 2);
             if (log2 == System.Math.Floor(log2))
@@ -95,7 +95,7 @@
             return 0;
         }
 
-        private static void sqrtStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
+        private static void      sqrtStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
         {
             int sqrtCounter = 0;
             sqrtCounter += sqrtCheck(i_DecimalNmber1);
@@ -104,7 +104,7 @@
             System.Console.WriteLine("There are {0} numbers that are powered by 2", sqrtCounter);
         }
 
-        private static int palindromCheck(int i_DecimalNmber)
+        private static int       palindromCheck(int i_DecimalNmber)
         {
             int originalDecimalNmber = i_DecimalNmber;
             int digit = 0;
@@ -126,7 +126,7 @@
             }
         }
 
-        private static void palindromStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
+        private static void      palindromStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
         {
             int palindromCounter = 0;
             palindromCounter += palindromCheck(i_DecimalNmber1);
@@ -135,7 +135,7 @@
             System.Console.WriteLine("There are {0} palindroms", palindromCounter);
         }
 
-        private static void sizeStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
+        private static void      sizeStatistics(int i_DecimalNmber1, int i_DecimalNmber2, int i_DecimalNmber3)
         {
             int max = 0;
             int min = 0;

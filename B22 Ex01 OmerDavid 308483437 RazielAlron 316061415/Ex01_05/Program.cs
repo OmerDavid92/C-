@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public static void Main()
+        public static void    Main()
         {
             string userInput = inputHandler();
             int userInputNumber = int.Parse(userInput);
@@ -20,7 +20,7 @@
             System.Console.WriteLine("The number of digits larger than unity digit is: {0}", numberOfDigitsLargerThanUnityDigit);
         }
 
-        private static bool isValidInput(string i_userInput)
+        private static bool   isValidInput(string i_userInput)
         {
             int userInputNumber = 0;
             if (i_userInput.Length != 7)
@@ -49,7 +49,7 @@
             return userInput;
         }
 
-        private static int getMinDigit(string i_UserInput)
+        private static int    getMinDigit(string i_UserInput)
         {
             int minDigit = (int)char.GetNumericValue(i_UserInput[0]);
             int currentDigit;
@@ -65,7 +65,7 @@
             return minDigit;
         }
 
-        private static float getDigitsAverage(string i_UserInput)
+        private static float  getDigitsAverage(string i_UserInput)
         {
             float digitsSum = 0;
             int currentDigit;
@@ -78,7 +78,7 @@
             return digitsSum / i_UserInput.Length;
         }
 
-        private static int getNumberOfDigitsDividedBy2(string i_UserInput)
+        private static int    getNumberOfDigitsDividedBy2(string i_UserInput)
         {
             int currentDigit;
             int digitsDividedBy2Counter = 0;
@@ -94,7 +94,7 @@
             return digitsDividedBy2Counter;
         }
 
-        private static int getNumberOfDigitsLargerThanUnityDigit(int i_userInputNumber)
+        private static int    getNumberOfDigitsLargerThanUnityDigit(int i_userInputNumber)
         {
             int unityDigit = i_userInputNumber % 10;
             int currentDigit = i_userInputNumber % 10;
