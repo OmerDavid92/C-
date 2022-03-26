@@ -2,6 +2,11 @@
 {
     class Program
     {
+        public static void Main()
+        {
+            int height = inputHandler();
+            Ex01_02.Program.PrintSandClock(height);
+        }
 
         private static int inputHandler()
         {
@@ -13,14 +18,8 @@
                 System.Console.WriteLine("Wrong Input! Please enter the height of the sand clock");
                 userInput = System.Console.ReadLine();
             }
+
             return userHeight;
         }
-        static void Main()
-        {
-            
-            int height = inputHandler();
-            Ex01_02.Program.PrintSandClock(height);
-        }
-
     }
 }

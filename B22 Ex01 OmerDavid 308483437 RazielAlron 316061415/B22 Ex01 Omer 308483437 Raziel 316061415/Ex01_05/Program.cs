@@ -1,7 +1,25 @@
 ﻿namespace Ex01_05
 {
-    class Program
+    public class Program
     {
+        public static void Main()
+        {
+            string userInput = inputHandler();
+            int userInputNumber = int.Parse(userInput);
+
+            int minDigit = getMinDigit(userInput);
+            System.Console.WriteLine("The minimum digit is: {0}", minDigit);
+
+            float digitsAverage = getDigitsAverage(userInput);
+            System.Console.WriteLine("The digits average is: {0}", digitsAverage);
+
+            int numberOfDigitsDividedBy2 = getNumberOfDigitsDividedBy2(userInput);
+            System.Console.WriteLine("The number of digits divided by 2 is: {0}", numberOfDigitsDividedBy2);
+
+            int numberOfDigitsLargerThanUnityDigit = getNumberOfDigitsLargerThanUnityDigit(userInputNumber);
+            System.Console.WriteLine("The number of digits larger than unity digit is: {0}", numberOfDigitsLargerThanUnityDigit);
+        }
+
         private static bool isValidInput(string i_userInput)
         {
             int userInputNumber = 0;
@@ -27,46 +45,52 @@
                 System.Console.WriteLine("Wrong Input! Please enter a 7 digits number");
                 userInput = System.Console.ReadLine();
             }
+
             return userInput;
         }
 
-        private static int getMinDigit(int i_userInputNumber)
+        private static int getMinDigit(string i_UserInput)
         {
-            int minDigit = i_userInputNumber % 10;
-            while (i_userInputNumber > 0)
+            int minDigit = (int)char.GetNumericValue(i_UserInput[0]);
+            int currentDigit;
+            for (int i = 1; i < i_UserInput.Length; i++)
             {
-                minDigit = System.Math.Min(minDigit, i_userInputNumber % 10);
-                i_userInputNumber = i_userInputNumber / 10;
+                currentDigit = (int)char.GetNumericValue(i_UserInput[i]);
+                if (minDigit > currentDigit)
+                {
+                    minDigit = currentDigit;
+                }
             }
+
             return minDigit;
         }
 
-        private static float getDigitsAverage(int i_userInputNumber)
+        private static float getDigitsAverage(string i_UserInput)
         {
             float digitsSum = 0;
-            float digitsCounter = 0;
-            while (i_userInputNumber > 0)
+            int currentDigit;
+            for (int i = 0; i < i_UserInput.Length; i++)
             {
-                digitsSum += i_userInputNumber % 10;
-                i_userInputNumber = i_userInputNumber / 10;
-                digitsCounter += 1;
+                currentDigit = (int)char.GetNumericValue(i_UserInput[i]);
+                digitsSum += currentDigit;
             }
-            return digitsSum / digitsCounter;
+
+            return digitsSum / i_UserInput.Length;
         }
 
-        private static int getNumberOfDigitsDividedBy2(int i_userInputNumber)
+        private static int getNumberOfDigitsDividedBy2(string i_UserInput)
         {
-            int currentDigit = i_userInputNumber % 10;
+            int currentDigit;
             int digitsDividedBy2Counter = 0;
-            while (i_userInputNumber > 0)
+            for (int i = 0; i < i_UserInput.Length; i++)
             {
+                currentDigit = (int)char.GetNumericValue(i_UserInput[i]);
                 if (currentDigit % 2 == 0)
                 {
                     digitsDividedBy2Counter += 1;
                 }
-                i_userInputNumber = i_userInputNumber / 10;
-                currentDigit = i_userInputNumber % 10;
             }
+
             return digitsDividedBy2Counter;
         }
 
@@ -81,31 +105,12 @@
                 {
                     digitsLargerThanUnityDigitCounter += 1;
                 }
+
                 i_userInputNumber = i_userInputNumber / 10;
                 currentDigit = i_userInputNumber % 10;
             }
+
             return digitsLargerThanUnityDigitCounter;
         }
-
-
-
-        static void Main()
-        {
-            string userInput = inputHandler();
-            int userInputNumber = int.Parse(userInput);
-            
-            int minDigit = getMinDigit(userInputNumber);
-            System.Console.WriteLine("The minimum digit is: {0}", minDigit);
-
-            float digitsAverage = getDigitsAverage(userInputNumber);
-            System.Console.WriteLine("The digits average is: {0}", digitsAverage);
-
-            int numberOfDigitsDividedBy2 = getNumberOfDigitsDividedBy2(userInputNumber);
-            System.Console.WriteLine("The number of digits divided by 2 is: {0}", numberOfDigitsDividedBy2);
-
-            int numberOfDigitsLargerThanUnityDigit = getNumberOfDigitsLargerThanUnityDigit(userInputNumber);
-            System.Console.WriteLine("The number of digits larger than unity digit is: {0}", numberOfDigitsLargerThanUnityDigit);
-        }
     }
-  
 }
